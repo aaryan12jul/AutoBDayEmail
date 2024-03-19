@@ -5,8 +5,8 @@ import smtplib
 import random
 
 # Constant Email & Password
-EMAIL = "aaryan12jul@gmail.com"
-PASSWORD = "ogbn djjw lewa vfrw"
+EMAIL = "Your Email"
+PASSWORD = "Your Password"
 
 # Getting Birthday
 birthday = pandas.read_csv("birthdays.csv")
@@ -22,7 +22,7 @@ if len(row) > 0:
         # Creating Updated Letter
         with open(f"letter_templates/letter_{random.randint(1, 3)}.txt", 'r') as file:
             message = file.read()
-            finalized_message = message.replace("[NAME]", f"{row.name[i]}")
+            finalized_message = message.replace("[NAME]", f"{row.name[i]}").replace("[Your Name]", "Your Name")
         
         # Sending Letter
         with smtplib.SMTP("smtp.gmail.com") as connection:
